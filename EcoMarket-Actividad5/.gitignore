@@ -1,0 +1,51 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ / Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code (descomenta si no quieres compartir la configuración)
+# .vscode/
+
+# Flutter / Dart / Pub
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# Symbolication / ofuscación
+app.*.symbols
+app.*.map.json
+
+# Android Studio
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Android / Gradle (basura de compilación y rutas locales de cada máquina)
+/android/.gradle/
+/android/captures/
+/android/gradle-wrapper.jar
+/android/local.properties
+/android/key.properties
+/android/app/.cxx/
+**/android/**/GeneratedPluginRegistrant.java
+*.jks
+*.keystore
