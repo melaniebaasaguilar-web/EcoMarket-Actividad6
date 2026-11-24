@@ -61,15 +61,18 @@ void main() {
       expect(() => controller.agregarAlCarrito('b'), throwsStateError);
     });
 
-    test('reabastecerInventario permite comprar lo que estaba agotado', () async {
-      final controller = await _crearControlador();
+    test(
+      'reabastecerInventario permite comprar lo que estaba agotado',
+      () async {
+        final controller = await _crearControlador();
 
-      controller.reabastecerInventario(cantidad: 10);
-      controller.agregarAlCarrito('b', cantidad: 4);
+        controller.reabastecerInventario(cantidad: 10);
+        controller.agregarAlCarrito('b', cantidad: 4);
 
-      expect(controller.buscarProductoPorId('b')!.stock, 10);
-      expect(controller.cantidadEnCarrito('b'), 4);
-    });
+        expect(controller.buscarProductoPorId('b')!.stock, 10);
+        expect(controller.cantidadEnCarrito('b'), 4);
+      },
+    );
 
     test('notifica a los observadores al cambiar el carrito', () async {
       final controller = await _crearControlador();
@@ -105,17 +108,25 @@ void main() {
           )
           .toList();
 
-      expect(
-        lecturas.map((lectura) => lectura.minutosRestantes),
-        <int>[30, 25, 20, 15, 10, 5, 0],
-      );
+      expect(lecturas.map((lectura) => lectura.minutosRestantes), <int>[
+        30,
+        25,
+        20,
+        15,
+        10,
+        5,
+        0,
+      ]);
       expect(lecturas.first.progreso, 0);
       expect(lecturas.last.entregado, isTrue);
     });
 
-    test('procesarPago devuelve comprobante y rechaza totales inválidos', () async {
-      expect(await servicio.procesarPago(25), startsWith('PAGO-'));
-      expect(servicio.procesarPago(0), throwsArgumentError);
-    });
+    test(
+      'procesarPago devuelve comprobante y rechaza totales inválidos',
+      () async {
+        expect(await servicio.procesarPago(25), startsWith('PAGO-'));
+        expect(servicio.procesarPago(0), throwsArgumentError);
+      },
+    );
   });
 }
