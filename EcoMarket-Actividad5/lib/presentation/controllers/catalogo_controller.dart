@@ -6,8 +6,7 @@ import '../../domain/entities/producto.dart';
 import '../../domain/repositories/producto_repository.dart';
 
 class CatalogoController extends ChangeNotifier {
-  CatalogoController({required ProductoRepository repository})
-    : _repository = repository;
+  CatalogoController({required this._repository});
 
   static final Coordenada _origenPredeterminado = Coordenada(
     latitud: -16.52,

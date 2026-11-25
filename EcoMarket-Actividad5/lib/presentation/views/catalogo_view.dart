@@ -195,7 +195,10 @@ class _CatalogoContenido extends StatelessWidget {
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () {
               controller.reabastecerInventario();
-              _mostrarAviso(context, 'Inventario reabastecido (+10 por producto).');
+              _mostrarAviso(
+                context,
+                'Inventario reabastecido (+10 por producto).',
+              );
             },
             icon: const Icon(Icons.inventory_2_outlined),
             label: const Text('Rellenar Stock'),
@@ -224,7 +227,7 @@ class _CatalogoContenido extends StatelessWidget {
                     },
                     icon: Badge(
                       label: Text('$enCarrito'),
-                      isLabelVisible: enCarrito > 0,
+                      isLabelVisible: true,
                       child: const Icon(Icons.shopping_cart_outlined),
                     ),
                   ),
@@ -255,12 +258,14 @@ class _CatalogoContenido extends StatelessWidget {
                       ChoiceChip(
                         label: const Text('Todas'),
                         selected: controller.categoriaSeleccionada == null,
-                        onSelected: (_) => controller.seleccionarCategoria(null),
+                        onSelected: (_) =>
+                            controller.seleccionarCategoria(null),
                       ),
                       for (final categoria in controller.categorias)
                         ChoiceChip(
                           label: Text(categoria),
-                          selected: controller.categoriaSeleccionada == categoria,
+                          selected:
+                              controller.categoriaSeleccionada == categoria,
                           onSelected: (_) =>
                               controller.seleccionarCategoria(categoria),
                         ),
@@ -271,18 +276,21 @@ class _CatalogoContenido extends StatelessWidget {
               if (productos.isEmpty)
                 const SliverFillRemaining(
                   hasScrollBody: false,
-                  child: Center(child: Text('No hay productos en esta categoría.')),
+                  child: Center(
+                    child: Text('No hay productos en esta categoría.'),
+                  ),
                 )
               else
                 SliverPadding(
                   padding: const EdgeInsets.fromLTRB(12, 4, 12, 96),
                   sliver: SliverGrid(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
-                      childAspectRatio: 0.65,
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                          childAspectRatio: 0.65,
+                        ),
                     delegate: SliverChildBuilderDelegate((context, indice) {
                       final producto = productos[indice];
                       return ProductoCard(
