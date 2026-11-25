@@ -57,3 +57,4 @@ app.*.map.json
 ## Formatos adicionales de almacén de claves
 *.p12
 *.pfx
+/android/.kotlin/

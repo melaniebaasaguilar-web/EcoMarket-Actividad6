@@ -47,6 +47,17 @@ android {
     }
 }
 
+val hasReleaseSigning = listOf("storeFile", "storePassword", "keyAlias", "keyPassword")
+    .all { !signingProperties.getProperty(it).isNullOrBlank() }
+
+tasks.matching { it.name in setOf("signReleaseBundle", "validateSigningRelease") }.configureEach {
+    doFirst {
+        check(hasReleaseSigning) {
+            "Configura android/key.properties con el keystore y las credenciales de producción."
+        }
+    }
+}
+
 kotlin {
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
