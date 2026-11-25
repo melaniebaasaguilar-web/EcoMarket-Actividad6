@@ -46,7 +46,7 @@ class _CatalogoViewState extends State<CatalogoView> {
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           return Scaffold(
-            appBar: AppBar(title: const Text('EcoMarket')),
+            appBar: AppBar(title: const Text('EcoMarket Pro')),
             body: const Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -62,7 +62,7 @@ class _CatalogoViewState extends State<CatalogoView> {
 
         if (snapshot.hasError) {
           return Scaffold(
-            appBar: AppBar(title: const Text('EcoMarket')),
+            appBar: AppBar(title: const Text('EcoMarket Pro')),
             body: Center(
               child: Padding(
                 padding: const EdgeInsets.all(24),
@@ -210,7 +210,7 @@ class _CatalogoContenido extends StatelessWidget {
                 expandedHeight: 150,
                 backgroundColor: esquema.primary,
                 foregroundColor: esquema.onPrimary,
-                title: const Text('EcoMarket'),
+                title: const Text('EcoMarket Pro'),
                 actions: [
                   IconButton(
                     tooltip: 'Ir al checkout',

@@ -58,7 +58,7 @@ void main() {
       await tester.pumpAndSettle();
 
       // 3. ASSERT
-      expect(find.text('EcoMarket'), findsOneWidget);
+      expect(find.text('EcoMarket Pro'), findsOneWidget);
 
       expect(find.byType(Badge), findsOneWidget);
 

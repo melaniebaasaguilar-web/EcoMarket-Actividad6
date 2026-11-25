@@ -83,7 +83,7 @@ class _EcoMarketAppState extends State<EcoMarketApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EcoMarket',
+      title: 'EcoMarket Pro',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E7D32)),
